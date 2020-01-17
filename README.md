@@ -1,68 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ChirpSAT
 
-## Available Scripts
+Simple satellite programming for radio amateurs.
 
-In the project directory, you can run:
+## What is it?
 
-### `npm start`
+ChirpSAT is a web tool built for the amateur radio satellite
+community. Its primary function is to generate channels with
+doppler shift correction that can be easily imported into CPS and programmed to a radio.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How do I use it?
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+ChirpSAT is easy to use, form the home page select your radio. This will load options specific to your radio and ensure that the .csv generated will be usable in your CPS.
 
-### `npm test`
+If you've never programmed your radio before, check out [Powerwerx](https://powerwerx.com/help/two-way-radios) or [BridgeCom Systems](https://www.bridgecomsystems.com/pages/support) for support on your radio and a download link to the the programming software you need.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Alteranitevly, you can use third-party software like [CHIRP](https://chirp.danplanet.com/projects/chirp/wiki/Home), but proceed at your own risk, the use ot third-party software introduces its own risks.
 
-### `npm run build`
+With your radio selected, choose wtich satellites you would like to create channels for and program to your radio.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Next, choose wtich channel you would like to start with. If you
+already have channels programmed into your radio, you may want to
+start with a later, empty, channel. You can always change your
+channel numbering on your own either with a .csv editor like Excel
+or within your CPS.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Satellite up-link and down-link data for the satellites you've
+selected will be imported, which you can manually override by
+selecting the satellite dropdown, and choosing edit.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Choose the power level you would like to use when transmitting. It
+is always recommended that you use the least amount of power
+needed to make a contact, which for satellites can be as little as
+2 watts.
 
-### `npm run eject`
+The last step is to configure the naming convention of your
+channels. By default, channels will be named by the satellite
+name, and their channel offset relative to the center channel.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+AO-92 (-3)
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can change the naming convention using `#keywords#. The default naming is:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+#satellite_name# (#channel_offset#)
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Lastly, you'll export your channels into a .csv file wtich you can import into the CPS of you choosing. If you've already created channels, you may want to export the existing channels into a .csv, and combine the two by copy pasting from on to the other, then import the new file.
 
-## Learn More
+## How does it work?
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Satellite data is acquired from
+[SatNOGS DB](https://db.satnogs.org/), and the up-link
+and down-link frequencies are used to automatically generate
+channels with doppler shift correction for easy programming.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ChirpSAT is built using Javascript, styled with [Bootstrap](https://www.getbootstrap.com/), and uses icons from [Font Awesome](https://www.fontawesome.com/).
 
-### Code Splitting
+## Who made it?
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+ChirpSAT was created by Michael Parry [KE8KDF](https://www.qrz.com/db/KE8KDF). It was created to simplify the process of programming HTs that use a CPS which are often frustrating and tediuos to use.
 
-### Analyzing the Bundle Size
+## How can I help?
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+If you're interested in helping with ChirpSAT, send an email to [ke8kdf@yahoo.com](mailto:ke8kdf@yahoo.com).
