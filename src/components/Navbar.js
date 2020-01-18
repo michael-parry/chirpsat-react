@@ -7,7 +7,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 export default class navbar extends Component {
   render() {
     return (
-      <div className="nav navbar navbar-expand navbar-dark bg-primary fixed-top">
+      <div className="navbar navbar-expand navbar-dark bg-primary fixed-top">
         <Link to="/" className="navbar-brand">
           ChirpSAT
         </Link>
