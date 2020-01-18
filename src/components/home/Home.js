@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "../Navbar";
 import Table from "./Table";
 import Config from "./Config";
+import { Row } from "react-bootstrap/";
 
 export default class home extends Component {
   constructor(props) {
@@ -45,16 +46,17 @@ export default class home extends Component {
     return (
       <>
         <Navbar></Navbar>
-        <row className="row m-0 position-relative">
+        <Row className="m-0 position-relative">
           <Config
             Options={this.state.Options}
             onOptionChange={this.handleChange}
+            Option={this.state.SelectedOption}
           />
           <Table
             TableRow={this.state.TableRow}
             SelectedOption={this.state.SelectedOption}
           />
-        </row>
+        </Row>
       </>
     );
   }

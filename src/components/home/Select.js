@@ -14,8 +14,13 @@ export default class Select extends Component {
         {choice.title}
       </option>
     ));
+    const Option = this.props.SelectedOption;
     return (
-      <select className="form-control" onChange={this.handleChange}>
+      <select
+        className="form-control"
+        value={Option}
+        onChange={this.handleChange}
+      >
         {optionsList}
       </select>
     );

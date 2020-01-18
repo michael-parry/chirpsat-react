@@ -100,21 +100,33 @@ export default class home extends Component {
                 <section className="container text-muted">
                   <p>
                     If you've never programmed your radio before, check out{" "}
-                    <Link to="https://powerwerx.com/help/two-way-radios">
-                      Powewerx
-                    </Link>{" "}
+                    <a
+                      href="https://powerwerx.com/help/two-way-radios"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Powerwerx
+                    </a>{" "}
                     or{" "}
-                    <Link to="https://www.bridgecomsystems.com/pages/support">
+                    <a
+                      href="https://www.bridgecomsystems.com/pages/support"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       BridgeCom Systems
-                    </Link>{" "}
+                    </a>{" "}
                     for support on your radio and a download link to the
                     programming software you need.
                   </p>
                   <p>
                     Alternatively, you can use third-party software like{" "}
-                    <Link to="https://chirp.danplanet.com/projects/chirp/wiki/Home">
+                    <a
+                      href="https://chirp.danplanet.com/projects/chirp/wiki/Home"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       CHIRP
-                    </Link>
+                    </a>
                     , but proceed at your own risk, the use of third-party
                     software introduces its own risks.
                   </p>
@@ -185,16 +197,35 @@ export default class home extends Component {
                 </h2>
                 <p>
                   Satellite data is acquired from{" "}
-                  <Link to="https://db.satnogs.org/">SatNOGS DB</Link>, and the
-                  up-link and down-link frequencies are used to automatically
-                  generate channels with doppler shift correction for easy
-                  programming.
+                  <a
+                    href="https://db.satnogs.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    SatNOGS DB
+                  </a>
+                  , and the up-link and down-link frequencies are used to
+                  automatically generate channels with doppler shift correction
+                  for easy programming.
                 </p>
                 <p>
                   ChirpSAT is built using Javascript, styled with{" "}
-                  <Link to="https://getbootstrap.com/">Bootstrap</Link>, and
-                  uses icons from{" "}
-                  <Link to="https://www.fontawesome.com">Font Awesome</Link>.
+                  <a
+                    href="https://getbootstrap.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Bootstrap
+                  </a>
+                  , and uses icons from{" "}
+                  <a
+                    href="https://www.fontawesome.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Font Awesome
+                  </a>
+                  .
                 </p>
               </Container>
               <Container>
@@ -211,14 +242,25 @@ export default class home extends Component {
                 </h2>
                 <p>
                   ChirpSAT was created by Michael Parry{" "}
-                  <Link to="https://www.qrz.com/db/KE8KDF">KE8KDF</Link>. It was
-                  created to simplify the process of programming HTs that use a{" "}
+                  <a
+                    href="https://www.qrz.com/db/KE8KDF"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    KE8KDF
+                  </a>
+                  . It was created to simplify the process of programming HTs
+                  that use a{" "}
                   <abbr title="consumer programming software">CPS</abbr>, which
                   are often frustrating and tedious to use. If you'd like to
                   keep up with the project, check it out on{" "}
-                  <Link to="https://github.com/michael-parry/chirpsat">
+                  <a
+                    href="https://github.com/michael-parry/chirpsat"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Github
-                  </Link>
+                  </a>
                   .
                 </p>
               </Container>
@@ -236,7 +278,15 @@ export default class home extends Component {
                 </h2>
                 <p>
                   If you're interested in helping with ChirpSAT, send an email
-                  to <Link to="mailto:ke8kdf@yahoo.com">ke8kdf@yahoo.com</Link>.
+                  to
+                  <a
+                    href="mailto:ke8kdf@yahoo.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    KE8KDF@yahoo.com
+                  </a>
+                  .
                 </p>
               </Container>
             </article>

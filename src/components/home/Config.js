@@ -18,6 +18,7 @@ export default class Config extends Component {
       bottom: 0,
       overflowY: "auto"
     };
+    const Option = this.props.Option;
     return (
       <Container
         className="config col col-lg-2 col-sm-5 form-group mt-2 p-0"
@@ -26,6 +27,7 @@ export default class Config extends Component {
         <Select
           Options={this.props.Options}
           onOptionChange={this.handleChange}
+          SelectedOption={Option}
         ></Select>
       </Container>
     );

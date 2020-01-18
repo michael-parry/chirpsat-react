@@ -28,6 +28,7 @@ export default class navbar extends Component {
             <a
               href="https://www.twitter.com/ke8kdf/"
               target="_blank"
+              rel="noopener noreferrer"
               className="nav-link"
             >
               <FontAwesomeIcon icon={faTwitter} />
@@ -37,6 +38,7 @@ export default class navbar extends Component {
             <a
               href="https://github.com/michael-parry/chirpsat-react"
               target="_blank"
+              rel="noopener noreferrer"
               className="nav-link"
             >
               <FontAwesomeIcon icon={faGithub} />
