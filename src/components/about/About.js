@@ -209,7 +209,15 @@ export default class home extends Component {
                   for easy programming.
                 </p>
                 <p>
-                  ChirpSAT is built using Javascript, styled with{" "}
+                  ChirpSAT is built with{" "}
+                  <a
+                    href="https://reactjs.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    React
+                  </a>
+                  , styled by{" "}
                   <a
                     href="https://getbootstrap.com/"
                     target="_blank"
