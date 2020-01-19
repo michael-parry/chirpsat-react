@@ -1,0 +1,34 @@
+[
+  {
+    "radio": "anytone878",
+    "radioName": "AnyTone 878",
+    "id": 0,
+    "channelDetails": [
+      { "title": "Channel", "class": "cellChannel" },
+      { "title": "Name", "class": "cellChannelName" },
+      { "title": "TX", "class": "cellTx" },
+      { "title": "RX", "class": "cellRx" },
+      { "title": "Bandwidth", "class": "cellBandwidth" },
+      { "title": "Power", "class": "cellPower" },
+      { "title": "Tone", "class": "cellTone" }
+      { "title": "Zone", "class": "cellZone" }
+    ],
+    "power": ["Low", "Medium", "High", "Turbo"],
+    "bandwidth": [12.5, 25]
+  },
+  {
+    "radio": "rt82",
+    "brand": "retevis",
+    "model": "rt82",
+    "radioName": "Retevis RT82",
+    "id": 1,
+    "channelDetails": [
+      { "title": "Channel", "class": "cellChannel" },
+      { "title": "Name", "class": "cellChannelName" },
+      { "title": "TX", "class": "cellTx" },
+      { "title": "RX", "class": "cellRx" },
+      { "title": "Power", "class": "cellPower" },
+      { "title": "Tone", "class": "cellTone" },
+    "power": ["Low", "High"]
+  }
+]

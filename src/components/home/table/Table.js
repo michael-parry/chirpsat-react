@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import Row from "./Row";
 
 export default class Table extends Component {
   render() {
-    const tableRows = this.props.TableRow.columns.map(column => (
+    const tableRows = this.props.columns.map(column => (
       <th value={column}>{column}</th>
     ));
     const SelectedOption = this.props.SelectedOption;
@@ -12,9 +13,7 @@ export default class Table extends Component {
           <tr>{tableRows}</tr>
         </thead>
         <tbody>
-          <tr className="">
-            <td>{SelectedOption}</td>
-          </tr>
+          <Row rowContents={this.props.rowContents} />
         </tbody>
       </table>
     );
