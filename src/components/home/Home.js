@@ -22,25 +22,26 @@ export default class home extends Component {
         "5 watts",
         "12.5kHz",
         "FM Sats"
-      ]
+      ],
+      selectedRadio: radios.find(radio => parseInt(radio.id) === 1)
     };
   }
 
   handleChange(option) {
     this.setState({ selectedOption: option });
+    let foundRadio = radios.find(radio => radio.id == option);
+    foundRadio
+      ? this.setState({ selectedRadio: foundRadio })
+      : this.setState({ selectedRadio: radios[0] });
   }
 
   setHeader(header) {
     this.setState({ tableRow: header });
   }
 
+  updateRadio(id) {}
+
   render() {
-    var selectedRadioObject = radios.find(
-      radio => radio.id === this.state.selectedOption
-    );
-    this.columns = selectedRadioObject.channelDetails.map(
-      options => options.title
-    );
     return (
       <>
         <Navbar></Navbar>
@@ -49,9 +50,10 @@ export default class home extends Component {
             onOptionChange={this.handleChange}
             Option={this.state.selectedOption}
             radios={radios}
+            value={this.state.selectedOption}
           />
           <Table
-            columns={this.columns}
+            columns={this.state.selectedRadio.channelDetails}
             selectedOption={this.state.selectedOption}
             rowContents={this.state.rowContents}
           />

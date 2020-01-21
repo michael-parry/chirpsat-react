@@ -10,7 +10,7 @@ export default class SelectInput extends Component {
   }
   render() {
     const optionsList = this.props.options.map(option => (
-      <option value={option.id} className="form-control">
+      <option key={option.id} value={option.id} className="form-control">
         {option.radioName}
       </option>
     ));
@@ -22,6 +22,7 @@ export default class SelectInput extends Component {
             className="form-control"
             name={this.props.selectInfo.inputName}
             onChange={this.handleChange}
+            value={this.props.value}
           >
             {optionsList}
           </select>

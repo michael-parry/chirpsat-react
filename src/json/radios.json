@@ -2,7 +2,7 @@
   {
     "radio": "anytone878",
     "radioName": "AnyTone 878",
-    "id": 0,
+    "id": 1,
     "channelDetails": [
       { "title": "Channel", "class": "cellChannel" },
       { "title": "Name", "class": "cellChannelName" },
@@ -21,7 +21,7 @@
     "brand": "retevis",
     "model": "rt82",
     "radioName": "Retevis RT82",
-    "id": 1,
+    "id": 2,
     "channelDetails": [
       { "title": "Channel", "class": "cellChannel" },
       { "title": "Name", "class": "cellChannelName" },

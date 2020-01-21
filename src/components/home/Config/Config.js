@@ -26,6 +26,7 @@ export default class Config extends Component {
       >
         <SelectInput
           options={this.props.radios}
+          value={this.props.value}
           selectInfo={{ label: "Radio", inputName: "radioInput" }}
           onOptionChange={this.handleChange}
         />
