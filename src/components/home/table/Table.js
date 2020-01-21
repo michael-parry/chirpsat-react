@@ -6,7 +6,7 @@ export default class Table extends Component {
     const tableRows = this.props.columns.map(column => (
       <th value={column}>{column}</th>
     ));
-    const SelectedOption = this.props.SelectedOption;
+    const selectedOption = this.props.selectedOption;
     return (
       <table className="col col-7 col-lg-10 table table-responsive-lg table-striped table-bordered p-0 ml-auto overflow-auto">
         <thead className="thead-dark">

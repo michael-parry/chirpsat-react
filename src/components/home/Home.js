@@ -4,20 +4,7 @@ import Table from "./table/Table";
 import Config from "./Config/Config";
 import { Row } from "react-bootstrap/";
 
-const Options = [
-  {
-    id: 1,
-    title: "option 1"
-  },
-  {
-    id: 2,
-    title: "option 2"
-  },
-  {
-    id: 3,
-    title: "option 3"
-  }
-];
+import radios from "../../json/radios.json";
 
 export default class home extends Component {
   constructor(props) {
@@ -25,7 +12,7 @@ export default class home extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.setHeader = this.setHeader.bind(this);
     this.state = {
-      SelectedOption: "1",
+      selectedOption: 1,
       rowContents: [
         "1",
         "AO-91 (-2)",
@@ -37,38 +24,35 @@ export default class home extends Component {
         "FM Sats"
       ]
     };
-    this.columns = [
-      "#",
-      "Name",
-      "TX",
-      "RX",
-      "Tone",
-      "Power",
-      "Bandwidth",
-      "Zone"
-    ];
   }
 
   handleChange(option) {
-    this.setState({ SelectedOption: option });
+    this.setState({ selectedOption: option });
   }
 
   setHeader(header) {
     this.setState({ tableRow: header });
   }
+
   render() {
+    var selectedRadioObject = radios.find(
+      radio => radio.id === this.state.selectedOption
+    );
+    this.columns = selectedRadioObject.channelDetails.map(
+      options => options.title
+    );
     return (
       <>
         <Navbar></Navbar>
         <Row className="m-0 position-relative">
           <Config
-            Options={Options}
             onOptionChange={this.handleChange}
-            Option={this.state.SelectedOption}
+            Option={this.state.selectedOption}
+            radios={radios}
           />
           <Table
             columns={this.columns}
-            SelectedOption={this.state.SelectedOption}
+            selectedOption={this.state.selectedOption}
             rowContents={this.state.rowContents}
           />
         </Row>

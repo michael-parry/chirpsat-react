@@ -10,7 +10,7 @@
       { "title": "RX", "class": "cellRx" },
       { "title": "Bandwidth", "class": "cellBandwidth" },
       { "title": "Power", "class": "cellPower" },
-      { "title": "Tone", "class": "cellTone" }
+      { "title": "Tone", "class": "cellTone" },
       { "title": "Zone", "class": "cellZone" }
     ],
     "power": ["Low", "Medium", "High", "Turbo"],
@@ -28,7 +28,8 @@
       { "title": "TX", "class": "cellTx" },
       { "title": "RX", "class": "cellRx" },
       { "title": "Power", "class": "cellPower" },
-      { "title": "Tone", "class": "cellTone" },
+      { "title": "Tone", "class": "cellTone" }
+    ],
     "power": ["Low", "High"]
   }
 ]
