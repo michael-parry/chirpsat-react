@@ -8,7 +8,6 @@ export default class Tone extends Component {
         <div className="input-group">
           <select
             name="tone"
-            size="1"
             className="form-control"
             id="option-tone"
             aria-label="Tone"

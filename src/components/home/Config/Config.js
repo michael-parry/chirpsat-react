@@ -5,7 +5,6 @@ import Channels from "./Channels";
 import Tone from "./Tone";
 import Power from "./Power";
 import Name from "./Name";
-import Update from "./Update";
 
 export default class Config extends Component {
   constructor(props) {
@@ -21,13 +20,13 @@ export default class Config extends Component {
       position: "fixed",
       top: "56px",
       left: 0,
-      bottom: 0,
+      bottom: "38px",
       overflowY: "auto"
     };
 
     return (
-      <form className="col col-lg-2 col-sm-5 mt-2 p-0" style={configStyle}>
-        <div className="container">
+      <div className="col col-lg-2 col-sm-5 mt-0 p-0" style={configStyle}>
+        <form className="container mt-2 d-flex flex-column">
           <RadioInput
             options={this.props.radios}
             value={this.props.value}
@@ -39,9 +38,8 @@ export default class Config extends Component {
           <Tone />
           <Power />
           <Name />
-          <Update />
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }

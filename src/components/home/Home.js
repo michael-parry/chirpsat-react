@@ -3,6 +3,7 @@ import Navbar from "../Navbar";
 import Table from "./table/Table";
 import Config from "./Config/Config";
 import { Row } from "react-bootstrap/";
+import Update from "././Config/Update";
 
 import radios from "../../json/radios.json";
 
@@ -52,6 +53,7 @@ export default class home extends Component {
             radios={radios}
             value={this.state.selectedOption}
           />
+          <Update />
           <Table
             columns={this.state.selectedRadio.channelDetails}
             selectedOption={this.state.selectedOption}

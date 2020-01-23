@@ -4,6 +4,7 @@ export default class SatSearch extends Component {
   render() {
     return (
       <div className="form-group">
+        <label>Satellites</label>
         <div className="list-group" id="satListGroup">
           <input
             type="search"
