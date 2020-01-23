@@ -52,7 +52,7 @@ export default class home extends Component {
               </Link>
             </div>
           </aside>
-          <article className="col-10 col-lg-8 offset-lg-3">
+          <article className="col-10 col-lg-6 offset-lg-3">
             <h1 className="display-4">ChirpSAT</h1>
             <p className="lead mb-5">
               Simple satellite programming for radio amateurs.

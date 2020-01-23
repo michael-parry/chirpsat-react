@@ -17,7 +17,7 @@ export default class Channels extends Component {
               type="text"
               className="form-control"
               id="options-channel-range"
-              placeholder="range"
+              placeholder="spread"
             />
           </div>
         </div>

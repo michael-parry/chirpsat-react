@@ -45,7 +45,7 @@ export default class home extends Component {
   render() {
     return (
       <>
-        <Navbar></Navbar>
+        <Navbar />
         <Row className="m-0 position-relative">
           <Config
             onOptionChange={this.handleChange}
