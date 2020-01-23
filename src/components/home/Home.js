@@ -12,7 +12,7 @@ export default class home extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.setHeader = this.setHeader.bind(this);
     this.state = {
-      selectedOption: 1,
+      selectedOption: 0,
       rowContents: [
         "1",
         "AO-91 (-2)",
@@ -29,7 +29,7 @@ export default class home extends Component {
 
   handleChange(option) {
     this.setState({ selectedOption: option });
-    let foundRadio = radios.find(radio => radio.id == option);
+    let foundRadio = radios.find(radio => radio.id === parseInt(option));
     foundRadio
       ? this.setState({ selectedRadio: foundRadio })
       : this.setState({ selectedRadio: radios[0] });

@@ -16,17 +16,17 @@ export default class SelectInput extends Component {
     ));
     return (
       <div className="form-group">
-        <label>
-          {this.props.selectInfo.label}
-          <select
-            className="form-control"
-            name={this.props.selectInfo.inputName}
-            onChange={this.handleChange}
-            value={this.props.value}
-          >
-            {optionsList}
-          </select>
-        </label>
+        <label>{this.props.selectInfo.label}</label>
+        <select
+          className="form-control"
+          id="radioInput"
+          name={this.props.selectInfo.inputName}
+          onChange={this.handleChange}
+          value={this.props.value}
+        >
+          <option value="0">Choose..</option>
+          {optionsList}
+        </select>
       </div>
     );
   }
