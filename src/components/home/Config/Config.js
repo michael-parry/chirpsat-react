@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import RadioInput from "./RadioInput";
-import SatSearch from "./SatSearch";
+import SatSearch from "./SatSearch/SatSearch";
 import Channels from "./Channels";
 import Tone from "./Tone";
 import Power from "./Power";

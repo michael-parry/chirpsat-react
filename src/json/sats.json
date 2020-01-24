@@ -6,7 +6,8 @@
     "uplink": 145850000,
     "downlink": 436795000,
     "tone": 67.0,
-    "mode": "FM"
+    "mode": "FM",
+    "isActive": false
   },
   {
     "satellite": "Fox-1B (RadFXsat AO-91)",
@@ -15,7 +16,8 @@
     "uplink": 435250000,
     "downlink": 145960000,
     "tone": 67.0,
-    "mode": "FM"
+    "mode": "FM",
+    "isActive": false
   },
   {
     "satellite": "Fox-1D (AO-92)",
@@ -24,7 +26,8 @@
     "uplink": 435350000,
     "downlink": 145880000,
     "tone": 67.0,
-    "mode": "FM"
+    "mode": "FM",
+    "isActive": true
   },
   {
     "satellite": "Fox-1A (AO-85)",
@@ -34,6 +37,7 @@
     "uplink": 435182000,
     "downlink": 145980000,
     "tone": 67.0,
-    "mode": "FM"
+    "mode": "FM",
+    "isActive": false
   }
 ]
