@@ -21,9 +21,6 @@ export default class SatSearch extends Component {
     let searchList = this.state.sats.filter(sat =>
       sat.nickname.toUpperCase().includes(query)
     );
-    if (searchList.length === 0) {
-      searchList.push({ nickname: "None found...", disabled: true });
-    }
     this.setState({
       satsFound: searchList
     });
@@ -46,7 +43,7 @@ export default class SatSearch extends Component {
     const InactiveSats = this.state.satsFound
       .filter(sat => sat.isActive === false)
       .sort((a, b) => (a.nickname > b.nickname ? 1 : -1));
-    const foundSatArray = InactiveSats.map(sat => (
+    let foundSatArray = InactiveSats.map(sat => (
       <SatItem
         number={sat.number}
         nickname={sat.nickname}
@@ -54,7 +51,13 @@ export default class SatSearch extends Component {
         handleClick={this.handleClick}
       ></SatItem>
     ));
-
+    if (foundSatArray.length === 0) {
+      foundSatArray = (
+        <div className="list-group-item list-group-item-action bg-light">
+          None found..
+        </div>
+      );
+    }
     const activeSats = this.state.sats.filter(sat => sat.isActive === true);
     const activeSatArray = activeSats.map(sat => (
       <SatItemActive

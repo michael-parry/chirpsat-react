@@ -25,7 +25,7 @@ export default class Config extends Component {
     };
 
     return (
-      <div className="col col-lg-2 col-sm-5 mt-0 p-0" style={configStyle}>
+      <div className="col col-lg-2 col-sm-5 p-0" style={configStyle}>
         <form className="container mt-2 d-flex flex-column">
           <RadioInput
             options={this.props.radios}

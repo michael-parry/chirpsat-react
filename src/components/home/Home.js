@@ -46,7 +46,7 @@ export default class home extends Component {
     return (
       <>
         <Navbar />
-        <Row className="m-0 position-relative">
+        <Row className="row m-0 d-flex">
           <Config
             onOptionChange={this.handleChange}
             Option={this.state.selectedOption}
