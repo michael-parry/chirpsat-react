@@ -5,6 +5,7 @@ import Channels from "./Channels";
 import Tone from "./Tone";
 import Power from "./Power";
 import Name from "./Name";
+import Update from "./Update";
 
 export default class Config extends Component {
   constructor(props) {
@@ -15,17 +16,12 @@ export default class Config extends Component {
     this.props.onOptionChange(option);
   }
   render() {
-    // Config style
-    const configStyle = {
-      position: "fixed",
-      top: "56px",
-      left: 0,
-      bottom: "38px",
-      overflowY: "auto"
-    };
-
     return (
-      <div className="col col-lg-2 col-sm-5 p-0" style={configStyle}>
+      <div
+        // styled by style.css
+        className="col col-12 col-sm-5 col-lg-2  p-0"
+        id={"config-container"}
+      >
         <form className="container mt-2 d-flex flex-column">
           <RadioInput
             options={this.props.radios}
@@ -39,6 +35,7 @@ export default class Config extends Component {
           <Power />
           <Name />
         </form>
+        <Update />
       </div>
     );
   }

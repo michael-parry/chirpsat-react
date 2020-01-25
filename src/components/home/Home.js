@@ -3,8 +3,8 @@ import Navbar from "../Navbar";
 import Table from "./table/Table";
 import Config from "./Config/Config";
 import { Row } from "react-bootstrap/";
-import Update from "././Config/Update";
 
+import channels from "../../json/channels.json";
 import radios from "../../json/radios.json";
 
 export default class home extends Component {
@@ -14,16 +14,7 @@ export default class home extends Component {
     this.setHeader = this.setHeader.bind(this);
     this.state = {
       selectedOption: 0,
-      rowContents: [
-        "1",
-        "AO-91 (-2)",
-        "435.240",
-        "145.535",
-        "67.7 Hz",
-        "5 watts",
-        "12.5kHz",
-        "FM Sats"
-      ],
+      bodyContent: channels,
       selectedRadio: radios.find(radio => parseInt(radio.id) === 1)
     };
   }
@@ -46,18 +37,17 @@ export default class home extends Component {
     return (
       <>
         <Navbar />
-        <Row className="row m-0 d-flex">
+        <Row className="row m-0">
           <Config
             onOptionChange={this.handleChange}
             Option={this.state.selectedOption}
             radios={radios}
             value={this.state.selectedOption}
           />
-          <Update />
           <Table
             columns={this.state.selectedRadio.channelDetails}
             selectedOption={this.state.selectedOption}
-            rowContents={this.state.rowContents}
+            bodyContent={this.state.bodyContent}
           />
         </Row>
       </>
