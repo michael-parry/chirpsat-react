@@ -1,3 +1,8 @@
+#config-container {
+  border: 10px, gray;
+}
+
+/* Breakpoint table styling */
 @media (min-width: 576px) {
   #config-container {
     position: fixed;

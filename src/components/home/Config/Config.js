@@ -20,7 +20,7 @@ export default class Config extends Component {
       <div
         // styled by style.css
         className="col col-12 col-sm-5 col-lg-2  p-0"
-        id={"config-container"}
+        id="config-container"
       >
         <form className="container mt-2 d-flex flex-column">
           <RadioInput
@@ -30,9 +30,12 @@ export default class Config extends Component {
             onOptionChange={this.handleChange}
           />
           <SatSearch />
-          <Channels />
+          <Channels
+            channelStart={this.props.channelStart}
+            handleChange={this.props.handleChange.bind(this)}
+          />
           <Tone />
-          <Power />
+          <Power powerList={this.props.selectedRadio.power} />
           <Name />
         </form>
         <Update />

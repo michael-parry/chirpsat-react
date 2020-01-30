@@ -281,7 +281,7 @@ export default class home extends Component {
                 How can I help?
               </h2>
               <p>
-                If you're interested in helping with ChirpSAT, send an email to
+                If you're interested in helping with ChirpSAT, send an email to{" "}
                 <a
                   href="mailto:ke8kdf@yahoo.com"
                   target="_blank"

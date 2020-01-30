@@ -2,6 +2,9 @@ import React, { Component } from "react";
 
 export default class Power extends Component {
   render() {
+    const optionsList = this.props.powerList.map(power => (
+      <option value={power}>{power}</option>
+    ));
     return (
       <div className="form-group">
         <label>Power</label>
@@ -10,11 +13,10 @@ export default class Power extends Component {
             name="power-select"
             id="power-select"
             className="form-control"
+            value="0"
           >
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-            <option value="turbo">Turbo</option>
+            <option>Choose..</option>
+            {optionsList}
           </select>
           <div className="input-group-append">
             <span className="input-group-text">Watts</span>

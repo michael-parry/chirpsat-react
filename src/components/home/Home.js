@@ -12,10 +12,12 @@ export default class home extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.setHeader = this.setHeader.bind(this);
+    this.handleChannelChange = this.handleChannelChange.bind(this);
     this.state = {
       selectedOption: 0,
       bodyContent: channels,
-      selectedRadio: radios.find(radio => parseInt(radio.id) === 1)
+      selectedRadio: radios.find(radio => parseInt(radio.id) === 1),
+      channelStart: ""
     };
   }
 
@@ -33,6 +35,10 @@ export default class home extends Component {
 
   updateRadio(id) {}
 
+  handleChannelChange(e) {
+    this.setState({ channelStart: e.target.value });
+  }
+
   render() {
     return (
       <>
@@ -42,7 +48,10 @@ export default class home extends Component {
             onOptionChange={this.handleChange}
             Option={this.state.selectedOption}
             radios={radios}
+            selectedRadio={this.state.selectedRadio}
             value={this.state.selectedOption}
+            channelStart={this.state.channelStart}
+            handleChange={this.handleChannelChange}
           />
           <Table
             columns={this.state.selectedRadio.channelDetails}

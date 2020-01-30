@@ -11,7 +11,9 @@ export default class Channels extends Component {
               type="text"
               className="form-control"
               id="options-channel-start"
+              value={this.props.channelStart}
               placeholder="start"
+              onChange={this.props.handleChange.bind(this)}
             />
             <input
               type="text"

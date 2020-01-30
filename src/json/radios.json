@@ -40,12 +40,12 @@
         "cps_property": "Band Width"
       },
       {
-        "title": "CTCSS/DCS Decode",
+        "title": "TX Tone",
         "class": "cellRxTone",
         "cps_property": "CTCSS/DCS Decode"
       },
       {
-        "title": "CTCSS/DCS Encode",
+        "title": "RX Tone",
         "class": "cellTxTone",
         "cps_property": "CTCSS/DCS Encode"
       },

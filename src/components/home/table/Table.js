@@ -14,7 +14,7 @@ export default class Table extends Component {
 
     return (
       <div
-        className="col col-7 d-none  d-sm-block offset-sm-5 offset-lg-2 col-lg-10 table-responsive p-0 "
+        className="col col-7 d-none  d-sm-block offset-sm-5 offset-lg-2 col-lg-10 table-responsive p-0"
         style={{ height: "Calc(100vh - 56px)" }}
       >
         <table className="table table-striped table-bordered p-0  p-0 m-0">
