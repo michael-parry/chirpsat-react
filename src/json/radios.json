@@ -4,14 +4,226 @@
     "radioName": "AnyTone 878",
     "id": 1,
     "channelDetails": [
-      { "title": "Channel", "class": "cellChannel" },
-      { "title": "Name", "class": "cellChannelName" },
-      { "title": "TX", "class": "cellTx" },
-      { "title": "RX", "class": "cellRx" },
-      { "title": "Bandwidth", "class": "cellBandwidth" },
-      { "title": "Power", "class": "cellPower" },
-      { "title": "Tone", "class": "cellTone" },
-      { "title": "Zone", "class": "cellZone" }
+      {
+        "title": "No.",
+        "class": "cellNum",
+        "cps_property": "No."
+      },
+      {
+        "title": "Name",
+        "class": "cellName",
+        "cps_property": "Channel Name"
+      },
+      {
+        "title": "RX",
+        "class": "cellRx",
+        "cps_property": "Receive Frequency"
+      },
+      {
+        "title": "TX",
+        "class": "cellTx",
+        "cps_property": "Transmit Frequency"
+      },
+      {
+        "title": "Type",
+        "class": "cellType",
+        "cps_property": "Channel Type"
+      },
+      {
+        "title": "Power",
+        "class": "cellPower",
+        "cps_property": "Transmit Power"
+      },
+      {
+        "title": "Bandwidth",
+        "class": "cellBandwidth",
+        "cps_property": "Band Width"
+      },
+      {
+        "title": "TX Tone",
+        "class": "cellRxTone",
+        "cps_property": "CTCSS/DCS Decode"
+      },
+      {
+        "title": "RX Tone",
+        "class": "cellTxTone",
+        "cps_property": "CTCSS/DCS Encode"
+      },
+      {
+        "title": "Contact",
+        "class": "cellContact",
+        "cps_property": "Contact"
+      },
+      {
+        "title": "Contact Call Type",
+        "class": "cellContact Call Type",
+        "cps_property": "Contact Call Type"
+      },
+      {
+        "title": "Radio ID",
+        "class": "cellRadioID",
+        "cps_property": "Radio ID"
+      },
+      {
+        "title": "Busy Lock/TX Permit",
+        "class": "cellBusyLock",
+        "cps_property": "Busy Lock/TX Permit"
+      },
+      {
+        "title": "Squelch Mode",
+        "class": "cellSquelch",
+        "cps_property": "Squelch Mode"
+      },
+      {
+        "title": "Optional Signal",
+        "class": "cellOptionalSignal",
+        "cps_property": "Optional Signal"
+      },
+      {
+        "title": "DTMF ID",
+        "class": "cellDTMFID",
+        "cps_property": "DTMF ID"
+      },
+      {
+        "title": "2Tone ID",
+        "class": "cell2ToneID",
+        "cps_property": "2Tone ID"
+      },
+      {
+        "title": "5Tone ID",
+        "class": "cell5ToneID",
+        "cps_property": "5Tone ID"
+      },
+      {
+        "title": "PTT ID",
+        "class": "cellPTTID",
+        "cps_property": "PTT ID"
+      },
+      {
+        "title": "Color Code",
+        "class": "cellColorCode",
+        "cps_property": "Color Code"
+      },
+      {
+        "title": "Slot",
+        "class": "cellSlot",
+        "cps_property": "Slot"
+      },
+      {
+        "title": "Scan List",
+        "class": "cellScanList",
+        "cps_property": "Scan List"
+      },
+      {
+        "title": "Receive Group List",
+        "class": "cellReceiveGroupList",
+        "cps_property": "Receive Group List"
+      },
+      {
+        "title": "TX Prohibit",
+        "class": "cellTxProhibit",
+        "cps_property": "TX Prohibit"
+      },
+      {
+        "title": "Reverse",
+        "class": "cellReverse",
+        "cps_property": "Reverse"
+      },
+      {
+        "title": "Simplex TDMA",
+        "class": "cellSimplexTDMA",
+        "cps_property": "Simplex TDMA"
+      },
+      {
+        "title": "TDMA Adaptive",
+        "class": "cellTDMAAdaptive",
+        "cps_property": "TDMA Adaptive"
+      },
+      {
+        "title": "AES Digital Encryption",
+        "class": "cellAES",
+        "cps_property": "AES Digital Encryption"
+      },
+      {
+        "title": "Digital Encryption",
+        "class": "cellDigitalEncryption",
+        "cps_property": "Digital Encryption"
+      },
+      {
+        "title": "Call Confirmation",
+        "class": "cellCallConfirm",
+        "cps_property": "Call Confirmation"
+      },
+      {
+        "title": "Talk Around",
+        "class": "cellTalkAround",
+        "cps_property": "Talk Around"
+      },
+      {
+        "title": "Work Alone",
+        "class": "cellWorkAlone",
+        "cps_property": "Work Alone"
+      },
+      {
+        "title": "Custom CTCSS",
+        "class": "cellCustomCTCSS",
+        "cps_property": "Custom CTCSS"
+      },
+      {
+        "title": "2TONE Decode",
+        "class": "cell2TONEDecode",
+        "cps_property": "2TONE Decode"
+      },
+      {
+        "title": "Ranging",
+        "class": "cellRanging",
+        "cps_property": "Ranging"
+      },
+      {
+        "title": "Through Mode",
+        "class": "cellThroughMode",
+        "cps_property": "Through Mode"
+      },
+      {
+        "title": "Digi APRS RX",
+        "class": "cellDigiAPRSRx",
+        "cps_property": "Digi APRS RX"
+      },
+      {
+        "title": "Analog APRS PTT Mode",
+        "class": "cellAnalogAPRSPTT",
+        "cps_property": "Analog APRS PTT Mode"
+      },
+      {
+        "title": "Digital APRS PTT Mode",
+        "class": "cellDigitalAPRSPTT",
+        "cps_property": "Digital APRS PTT Mode"
+      },
+      {
+        "title": "APRS Report Type",
+        "class": "cellAPRSReportType",
+        "cps_property": "APRS Report Type"
+      },
+      {
+        "title": "Digital APRS Report Channel",
+        "class": "cellDigitalAPRSReportChannel",
+        "cps_property": "Digital APRS Report Channel"
+      },
+      {
+        "title": "Correct Frequency[Hz]",
+        "class": "cellCorrectFq",
+        "cps_property": "Correct Frequency[Hz]"
+      },
+      {
+        "title": "SMS Confirmation",
+        "class": "cellSMSConfirm",
+        "cps_property": "SMS Confirmation"
+      },
+      {
+        "title": "Exclude channel from roaming",
+        "class": "cellExclude",
+        "cps_property": "Exclude channel from roaming"
+      }
     ],
     "power": ["Low", "Medium", "High", "Turbo"],
     "bandwidth": [12.5, 25]
@@ -23,7 +235,7 @@
     "radioName": "Retevis RT82",
     "id": 2,
     "channelDetails": [
-      { "title": "Channel", "class": "cellChannel" },
+      { "title": "No.", "class": "cellNum" },
       { "title": "Name", "class": "cellChannelName" },
       { "title": "TX", "class": "cellTx" },
       { "title": "RX", "class": "cellRx" },

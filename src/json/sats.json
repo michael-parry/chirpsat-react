@@ -1,0 +1,43 @@
+[
+  {
+    "satellite": "SO-50 (SaudiSat-1c)",
+    "nickname": "SO-50",
+    "number": 27607,
+    "uplink": 145850000,
+    "downlink": 436795000,
+    "tone": 67.0,
+    "mode": "FM",
+    "isActive": false
+  },
+  {
+    "satellite": "Fox-1B (RadFXsat AO-91)",
+    "nickname": "AO-91",
+    "number": 43017,
+    "uplink": 435250000,
+    "downlink": 145960000,
+    "tone": 67.0,
+    "mode": "FM",
+    "isActive": false
+  },
+  {
+    "satellite": "Fox-1D (AO-92)",
+    "nickname": "AO-92",
+    "number": 43171,
+    "uplink": 435350000,
+    "downlink": 145880000,
+    "tone": 67.0,
+    "mode": "FM",
+    "isActive": true
+  },
+  {
+    "satellite": "Fox-1A (AO-85)",
+    "nickname": "AO-85",
+    "number": 40967,
+    "disabled": true,
+    "uplink": 435182000,
+    "downlink": 145980000,
+    "tone": 67.0,
+    "mode": "FM",
+    "isActive": false
+  }
+]
