@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import Callsign from "./Callsign";
 import RadioInput from "./RadioInput";
 import SatSearch from "./SatSearch/SatSearch";
 import Channels from "./Channels";
 import Tone from "./Tone";
 import Power from "./Power";
 import Name from "./Name";
-import Update from "./Update";
+import Export from "./Export";
 
 export default class Config extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ export default class Config extends Component {
         id="config-container"
       >
         <form className="container mt-2 d-flex flex-column">
+          <Callsign />
           <RadioInput
             options={this.props.radios}
             value={this.props.value}
@@ -38,7 +40,7 @@ export default class Config extends Component {
           <Power powerList={this.props.selectedRadio.power} />
           <Name />
         </form>
-        <Update />
+        <Export />
       </div>
     );
   }

@@ -13,7 +13,6 @@ export default class Power extends Component {
             name="power-select"
             id="power-select"
             className="form-control"
-            value="0"
           >
             <option>Choose..</option>
             {optionsList}

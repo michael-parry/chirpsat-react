@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Update() {
+export default function Export() {
   const handleClick = e => {
     e.preventDefault();
   };
@@ -14,7 +14,7 @@ export default function Update() {
         id="sheet-update-button"
         onClick={handleClick}
       >
-        Update
+        Export
       </button>
     </form>
   );
