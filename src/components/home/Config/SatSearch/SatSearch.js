@@ -51,7 +51,7 @@ export default class SatSearch extends Component {
         handleClick={this.handleClick}
       ></SatItem>
     ));
-    if (foundSatArray.length === 0) {
+    if (foundSatArray.filter(sat => !sat.isActive).length === 0) {
       foundSatArray = (
         <div className="list-group-item list-group-item-action bg-light">
           None found..
