@@ -3,6 +3,8 @@ import sats from "../../../../json/sats";
 import SatItem from "./SatItem";
 import SatItemActive from "./SatItemActive";
 
+const uuidv4 = require("uuid/v4");
+
 export default class SatSearch extends Component {
   constructor(props) {
     super(props);
@@ -45,6 +47,7 @@ export default class SatSearch extends Component {
       .sort((a, b) => (a.nickname > b.nickname ? 1 : -1));
     let foundSatArray = InactiveSats.map(sat => (
       <SatItem
+        key={uuidv4()}
         number={sat.number}
         nickname={sat.nickname}
         isDisabled={sat.disabled}
