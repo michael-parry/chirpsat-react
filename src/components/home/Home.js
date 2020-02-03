@@ -12,9 +12,9 @@ export default class home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bodyContent: [],
       selectedRadio: radios.find(radio => parseInt(radio.id) === 1),
       channelStart: "",
+      callsign: "",
       satValue: "",
       sats: sats,
       satsFound: sats
@@ -30,15 +30,23 @@ export default class home extends Component {
     const newRows = [];
     activeSatArray.forEach((sat, index) => {
       let newChannel = { ...emptyChannel[0] };
-      newChannel["No."] = index + 3;
+      newChannel["No."] = !this.state.channelStart
+        ? index + 1
+        : this.state.channelStart + index;
       newChannel["Channel Name"] = sat.nickname;
       newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
+      newChannel["Transmit Frequency"] = (sat.uplinkk * 1e-6).toFixed(3);
+      newChannel["Contact"] = toString(this.state.callsign);
       newRows.push(newChannel);
     });
     this.setState({
       bodyContent: newRows
     });
   };
+
+  componentDidMount() {
+    this.updateTable();
+  }
 
   // Select handling
 
@@ -82,32 +90,56 @@ export default class home extends Component {
     this.setState({
       sats: newSatArray
     });
-    this.updateTable();
   };
 
   render() {
+    // state destructuring
+    const {
+      callsign,
+      selectedOption,
+      selectedRadio,
+      channelStart,
+      sats,
+      satsFound,
+      satValue
+    } = this.state;
+
+    // generate table rows from state, pass to table as prop
+    const activeSatArray = this.state.sats
+      .filter(sat => sat.isActive === true)
+      .sort((a, b) => (a.nickname < b.nickname ? -1 : 1));
+    const newRows = [];
+    activeSatArray.forEach((sat, index) => {
+      let newChannel = { ...emptyChannel[0] };
+      newChannel["No."] = !this.state.channelStart
+        ? index + 1
+        : parseInt(this.state.channelStart) + index;
+      newChannel["Channel Name"] = sat.nickname;
+      newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
+      newChannel["Transmit Frequency"] = (sat.uplinkk * 1e-6).toFixed(3);
+      newChannel["Contact"] = toString(this.state.callsign);
+      newRows.push(newChannel);
+    });
     return (
       <>
         <Navbar />
         <Row className="row m-0">
           <Config
-            Option={this.state.selectedOption}
+            callsign={callsign}
+            Option={selectedOption}
             radios={radios}
-            selectedRadio={this.state.selectedRadio}
-            value={this.state.selectedOption}
-            channelStart={this.state.channelStart}
-            sats={this.state.sats}
-            satsFound={this.state.satsFound}
-            satValue={this.state.satValue}
+            selectedRadio={selectedRadio}
+            value={selectedOption}
+            channelStart={channelStart}
+            sats={sats}
+            satsFound={satsFound}
+            satValue={satValue}
             handleChannelChange={this.handleChannelChange}
             onOptionChange={this.handleRadioChange}
             handleSatClick={this.handleSatClick}
             handleSatSearch={this.handleSatSearch}
           />
-          <Table
-            columns={this.state.selectedRadio.channelDetails}
-            bodyContent={this.state.bodyContent}
-          />
+          <Table columns={selectedRadio.channelDetails} bodyContent={newRows} />
         </Row>
       </>
     );
