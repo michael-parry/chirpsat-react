@@ -1,20 +1,13 @@
 import React, { Component } from "react";
+import TextInput from "./TextInput";
 import RadioInput from "./RadioInput";
 import SatSearch from "./SatSearch/SatSearch";
 import Channels from "./Channels";
-import Tone from "./Tone";
+// import Tone from "./Tone";
 import Power from "./Power";
-import Name from "./Name";
-import Update from "./Update";
+import Export from "./Export";
 
 export default class Config extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(option) {
-    this.props.onOptionChange(option);
-  }
   render() {
     return (
       <div
@@ -23,22 +16,37 @@ export default class Config extends Component {
         id="config-container"
       >
         <form className="container mt-2 d-flex flex-column">
+          <TextInput
+            name="callsign"
+            label="Callsign"
+            handleChange={this.props.handleCallsignChange.bind(this)}
+          />
           <RadioInput
             options={this.props.radios}
             value={this.props.value}
             selectInfo={{ label: "Radio", inputName: "radioInput" }}
-            onOptionChange={this.handleChange}
+            onOptionChange={this.props.onOptionChange.bind(this)}
           />
-          <SatSearch />
+          <SatSearch
+            sats={this.props.sats}
+            satsFound={this.props.satsFound}
+            value={this.props.satValue}
+            handleSatClick={this.props.handleSatClick.bind(this)}
+            handleSatSearch={this.props.handleSatSearch.bind(this)}
+          />
+          <TextInput name="channel-contact" label="Contact" />
           <Channels
             channelStart={this.props.channelStart}
-            handleChange={this.props.handleChange.bind(this)}
+            handleChange={this.props.handleChannelChange.bind(this)}
           />
-          <Tone />
           <Power powerList={this.props.selectedRadio.power} />
-          <Name />
+          <TextInput
+            name="channel-name"
+            placeholder="AO-92"
+            label="Channel name"
+          />
         </form>
-        <Update />
+        <Export />
       </div>
     );
   }

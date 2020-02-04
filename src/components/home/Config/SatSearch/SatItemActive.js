@@ -11,7 +11,7 @@ export default class SatItem extends Component {
         value={this.props.number}
         className={classActive}
         disabled={this.props.isDisabled}
-        onClick={this.props.handleClick.bind(this, this.props.number)}
+        onClick={this.props.handleSatClick.bind(this, this.props.number)}
       >
         {this.props.nickname}
       </button>

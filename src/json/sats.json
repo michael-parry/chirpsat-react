@@ -27,7 +27,7 @@
     "downlink": 145880000,
     "tone": 67.0,
     "mode": "FM",
-    "isActive": true
+    "isActive": false
   },
   {
     "satellite": "Fox-1A (AO-85)",
