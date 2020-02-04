@@ -16,7 +16,11 @@ export default class Config extends Component {
         id="config-container"
       >
         <form className="container mt-2 d-flex flex-column">
-          <TextInput name={"callsign"} placeholder={""} label={"Callsign"} />
+          <TextInput
+            name="callsign"
+            label="Callsign"
+            handleChange={this.props.handleCallsignChange.bind(this)}
+          />
           <RadioInput
             options={this.props.radios}
             value={this.props.value}
@@ -37,9 +41,9 @@ export default class Config extends Component {
           />
           <Power powerList={this.props.selectedRadio.power} />
           <TextInput
-            name={"channel-name"}
-            placeholder={"AO-92"}
-            label={"Channel name"}
+            name="channel-name"
+            placeholder="AO-92"
+            label="Channel name"
           />
         </form>
         <Export />

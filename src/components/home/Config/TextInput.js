@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function TextInput(props) {
-  const { label, name, placeholder } = props;
+  const { label, name, placeholder, handleChange } = props;
   return (
     <div className="form-group">
       <label>{label}</label>
@@ -10,6 +10,7 @@ export default function TextInput(props) {
         name={name}
         className="form-control"
         placeholder={placeholder}
+        onChange={handleChange ? handleChange.bind(this) : null}
       />
     </div>
   );

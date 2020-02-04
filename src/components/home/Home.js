@@ -21,33 +21,6 @@ export default class home extends Component {
     };
   }
 
-  // Update table
-
-  updateTable = () => {
-    const activeSatArray = this.state.sats
-      .filter(sat => sat.isActive === true)
-      .sort((a, b) => (a.nickname < b.nickname ? -1 : 1));
-    const newRows = [];
-    activeSatArray.forEach((sat, index) => {
-      let newChannel = { ...emptyChannel[0] };
-      newChannel["No."] = !this.state.channelStart
-        ? index + 1
-        : this.state.channelStart + index;
-      newChannel["Channel Name"] = sat.nickname;
-      newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
-      newChannel["Transmit Frequency"] = (sat.uplinkk * 1e-6).toFixed(3);
-      newChannel["Contact"] = toString(this.state.callsign);
-      newRows.push(newChannel);
-    });
-    this.setState({
-      bodyContent: newRows
-    });
-  };
-
-  componentDidMount() {
-    this.updateTable();
-  }
-
   // Select handling
 
   handleRadioChange = option => {
@@ -55,7 +28,6 @@ export default class home extends Component {
     foundRadio
       ? this.setState({ selectedRadio: foundRadio })
       : this.setState({ selectedRadio: radios[0] });
-    this.updateTable();
   };
 
   setHeader = header => {
@@ -64,6 +36,11 @@ export default class home extends Component {
 
   handleChannelChange = e => {
     this.setState({ channelStart: e.target.value });
+  };
+
+  handleCallsignChange = e => {
+    this.setState({ callsign: e.target.value });
+    console.log(this.state.callsign);
   };
 
   // SatSearch handling
@@ -116,8 +93,8 @@ export default class home extends Component {
         : parseInt(this.state.channelStart) + index;
       newChannel["Channel Name"] = sat.nickname;
       newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
-      newChannel["Transmit Frequency"] = (sat.uplinkk * 1e-6).toFixed(3);
-      newChannel["Contact"] = toString(this.state.callsign);
+      newChannel["Transmit Frequency"] = (sat.uplink * 1e-6).toFixed(3);
+      newChannel["Contact"] = this.state.callsign;
       newRows.push(newChannel);
     });
     return (
@@ -127,13 +104,14 @@ export default class home extends Component {
           <Config
             callsign={callsign}
             Option={selectedOption}
+            value={selectedOption}
             radios={radios}
             selectedRadio={selectedRadio}
-            value={selectedOption}
             channelStart={channelStart}
             sats={sats}
             satsFound={satsFound}
             satValue={satValue}
+            handleCallsignChange={this.handleCallsignChange}
             handleChannelChange={this.handleChannelChange}
             onOptionChange={this.handleRadioChange}
             handleSatClick={this.handleSatClick}
