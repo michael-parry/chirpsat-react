@@ -31,7 +31,7 @@ export default class Channels extends Component {
               type="text"
               className="form-control"
               id="options-channel-start"
-              value={this.props.channelStart}
+              value={this.props.channel.start}
               placeholder="start"
               onChange={this.props.handleChange.bind(this)}
             />
@@ -40,6 +40,7 @@ export default class Channels extends Component {
               type="text"
               className="form-control"
               id="options-channel-range"
+              value={this.props.channel.spread}
               placeholder="spread"
             ></input>
           </div>

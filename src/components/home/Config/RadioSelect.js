@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class SelectInput extends Component {
+export default class RadioSelect extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -22,7 +22,6 @@ export default class SelectInput extends Component {
           id="radioInput"
           name={this.props.selectInfo.inputName}
           onChange={this.handleChange}
-          value={this.props.value}
         >
           <option value="0">Choose..</option>
           {optionsList}

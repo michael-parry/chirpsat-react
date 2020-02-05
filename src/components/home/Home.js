@@ -20,7 +20,7 @@ class Home extends Component {
     super(props);
     this.state = {
       selectedRadio: radios.find(radio => parseInt(radio.id) === 1),
-      channelStart: "",
+      channel: { start: "", spread: "" },
       callsign: "",
       satValue: "",
       sats: sats,
@@ -42,7 +42,8 @@ class Home extends Component {
   };
 
   handleChannelChange = e => {
-    this.setState({ channelStart: e.target.value });
+    const newChannel = { ...this.state.channel, start: e.target.value };
+    this.setState({ channel: newChannel });
   };
 
   // SatSearch handling
@@ -73,14 +74,7 @@ class Home extends Component {
 
   render() {
     // state destructuring
-    const {
-      selectedOption,
-      selectedRadio,
-      channelStart,
-      sats,
-      satsFound,
-      satValue
-    } = this.state;
+    const { selectedRadio, channel, sats, satsFound, satValue } = this.state;
 
     // generate table rows from state, pass to table as prop
     const activeSatArray = this.state.sats
@@ -89,9 +83,9 @@ class Home extends Component {
     const newRows = [];
     activeSatArray.forEach((sat, index) => {
       let newChannel = { ...emptyChannel[0] };
-      newChannel["No."] = !this.state.channelStart
+      newChannel["No."] = !this.state.channel.start
         ? index + 1
-        : parseInt(this.state.channelStart) + index;
+        : parseInt(this.state.channel.start) + index;
       newChannel["Channel Name"] = sat.nickname;
       newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
       newChannel["Transmit Frequency"] = (sat.uplink * 1e-6).toFixed(3);
@@ -103,11 +97,9 @@ class Home extends Component {
         <Navbar />
         <Row className="row m-0">
           <Config
-            Option={selectedOption}
-            value={selectedOption}
             radios={radios}
             selectedRadio={selectedRadio}
-            channelStart={channelStart}
+            channel={channel}
             sats={sats}
             satsFound={satsFound}
             satValue={satValue}

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 const uuidv4 = require("uuid/v4");
 
-export default class Power extends Component {
+export default class PowerSelect extends Component {
   render() {
     const optionsList = this.props.powerList.map(power => (
       <option key={uuidv4()} value={power}>

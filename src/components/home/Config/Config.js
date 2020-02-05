@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 import { updateCallsign } from "../../../actions/configActions";
 
 import TextInput from "./TextInput";
-import RadioInput from "./RadioInput";
+import RadioSelect from "./RadioSelect";
 import SatSearch from "./SatSearch/SatSearch";
 import Channels from "./Channels";
 // import Tone from "./Tone";
-import Power from "./Power";
+import PowerSelect from "./PowerSelect";
 import Export from "./Export";
 
 class Config extends Component {
@@ -30,9 +30,8 @@ class Config extends Component {
             label="Callsign"
             handleChange={this.handleCallsignChange}
           />
-          <RadioInput
+          <RadioSelect
             options={this.props.radios}
-            value={this.props.value}
             selectInfo={{ label: "Radio", inputName: "radioInput" }}
             onOptionChange={this.props.onOptionChange.bind(this)}
           />
@@ -45,10 +44,10 @@ class Config extends Component {
           />
           <TextInput name="channel-contact" label="Contact" />
           <Channels
-            channelStart={this.props.channelStart}
+            channel={this.props.channel}
             handleChange={this.props.handleChannelChange.bind(this)}
           />
-          <Power powerList={this.props.selectedRadio.power} />
+          <PowerSelect powerList={this.props.selectedRadio.power} />
           <TextInput
             name="channel-name"
             placeholder="AO-92"
