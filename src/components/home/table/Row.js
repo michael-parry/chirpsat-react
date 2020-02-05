@@ -1,11 +1,11 @@
 import React from "react";
 
-const uuidv4 = require("uuid/v4");
+import { uuid } from "uuidv4";
 
 export default function Row(props) {
   const contentArray = Object.values(props.rowContents);
   const rowContent = contentArray.map(data => (
-    <td key={uuidv4()} className="table-data text-nowrap">
+    <td key={uuid()} className="table-data text-nowrap">
       {data}
     </td>
   ));

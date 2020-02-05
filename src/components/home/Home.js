@@ -29,13 +29,6 @@ class Home extends Component {
 
   // Select handling
 
-  handleRadioChange = option => {
-    let foundRadio = radios.find(radio => radio.id === parseInt(option));
-    foundRadio
-      ? this.setState({ selectedRadio: foundRadio })
-      : this.setState({ selectedRadio: radios[0] });
-  };
-
   setHeader = header => {
     this.setState({ tableRow: header });
   };
@@ -103,7 +96,6 @@ class Home extends Component {
             satsFound={satsFound}
             satValue={satValue}
             handleChannelChange={this.handleChannelChange}
-            onOptionChange={this.handleRadioChange}
             handleSatClick={this.handleSatClick}
             handleSatSearch={this.handleSatSearch}
           />

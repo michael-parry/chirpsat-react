@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { updateCallsign } from "../../../actions/configActions";
+import { updateCallsign } from "../../../actions/configActions"; // redux acion
 
 import TextInput from "./TextInput";
 import RadioSelect from "./RadioSelect";
@@ -26,9 +26,7 @@ class Config extends Component {
             handleChange={e => this.props.updateCallsign(e.target.value)}
           />
           <RadioSelect
-            options={this.props.radios}
             selectInfo={{ label: "Radio", inputName: "radioInput" }}
-            onOptionChange={this.props.onOptionChange.bind(this)}
           />
           <SatSearch
             sats={this.props.sats}

@@ -7,7 +7,7 @@ import {
 
 const initialState = {
   callsign: "",
-  radio: "",
+  radio: {},
   sats: [],
   sat: {}
 };
@@ -16,6 +16,8 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case UPDATE_CALLSIGN:
       return { ...state, callsign: action.payload };
+    case UPDATE_RADIO:
+      return { ...state, radio: action.payload };
     default:
       return state;
   }

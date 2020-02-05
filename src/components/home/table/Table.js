@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import Row from "./Row";
 
-const uuidv4 = require("uuid/v4");
+import { uuid } from "uuidv4";
 
 export default class Table extends Component {
   render() {
     const tableRows = this.props.columns.map(column => (
-      <th key={uuidv4()} className="text-nowrap" value={column.class}>
+      <th key={uuid()} className="text-nowrap" value={column.class}>
         {column.title}
       </th>
     ));
     const bodyRows = this.props.bodyContent.map(contents => (
-      <Row key={uuidv4()} rowContents={contents}></Row>
+      <Row key={uuid()} rowContents={contents}></Row>
     ));
 
     return (

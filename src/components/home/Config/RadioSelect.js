@@ -1,17 +1,28 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { uuid } from "uuidv4";
 
-export default class RadioSelect extends Component {
+import { updateRadio } from "../../../actions/configActions"; // redux action
+
+import radios from "../../../json/radios";
+
+class RadioSelect extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      value: ""
+    };
   }
-  handleChange(e) {
-    this.props.onOptionChange(e.target.value);
-  }
+
+  handleChange = e => {
+    this.setState({ value: e.target.value });
+    this.props.updateRadio(e.target.value);
+  };
+
   render() {
-    const optionsList = this.props.options.map(option => (
-      <option key={option.id} value={option.id} className="form-control">
-        {option.radioName}
+    const optionsList = radios.map(radio => (
+      <option key={uuid()} value={radio.id} className="form-control">
+        {radio.name}
       </option>
     ));
     return (
@@ -20,6 +31,7 @@ export default class RadioSelect extends Component {
         <select
           className="form-control"
           id="radioInput"
+          value={this.state.value}
           name={this.props.selectInfo.inputName}
           onChange={this.handleChange}
         >
@@ -30,3 +42,9 @@ export default class RadioSelect extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  config: state.config.radio
+});
+
+export default connect(mapStateToProps, { updateRadio })(RadioSelect);
