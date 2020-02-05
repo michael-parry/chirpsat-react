@@ -1,14 +1,21 @@
 import React, { Component } from "react";
+
+import { connect } from "react-redux";
+import { updateCallsign } from "../../actions/configActions";
+
 import Navbar from "../Navbar";
 import Table from "./table/Table";
 import Config from "./Config/Config";
+
+// react-bootstrap components
 import Row from "react-bootstrap/Row";
 
+// json data
 import emptyChannel from "../../json/emptyChannel.json";
 import radios from "../../json/radios.json";
 import sats from "../../json/sats.json";
 
-export default class home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,8 +46,8 @@ export default class home extends Component {
   };
 
   handleCallsignChange = e => {
-    this.setState({ callsign: e.target.value });
-    console.log(this.state.callsign);
+    const value = e.target.value;
+    this.props.updateCallsign(value);
   };
 
   // SatSearch handling
@@ -72,7 +79,6 @@ export default class home extends Component {
   render() {
     // state destructuring
     const {
-      callsign,
       selectedOption,
       selectedRadio,
       channelStart,
@@ -94,7 +100,7 @@ export default class home extends Component {
       newChannel["Channel Name"] = sat.nickname;
       newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
       newChannel["Transmit Frequency"] = (sat.uplink * 1e-6).toFixed(3);
-      newChannel["Contact"] = this.state.callsign;
+      newChannel["Contact"] = this.props.config;
       newRows.push(newChannel);
     });
     return (
@@ -102,7 +108,7 @@ export default class home extends Component {
         <Navbar />
         <Row className="row m-0">
           <Config
-            callsign={callsign}
+            callsign={this.props.config}
             Option={selectedOption}
             value={selectedOption}
             radios={radios}
@@ -123,3 +129,10 @@ export default class home extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  const { callsign } = state.config;
+  return { config: callsign };
+};
+
+export default connect(mapStateToProps, { updateCallsign })(Home);
