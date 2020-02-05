@@ -45,11 +45,6 @@ class Home extends Component {
     this.setState({ channelStart: e.target.value });
   };
 
-  handleCallsignChange = e => {
-    const value = e.target.value;
-    this.props.updateCallsign(value);
-  };
-
   // SatSearch handling
 
   handleSatSearch = e => {
@@ -100,7 +95,7 @@ class Home extends Component {
       newChannel["Channel Name"] = sat.nickname;
       newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
       newChannel["Transmit Frequency"] = (sat.uplink * 1e-6).toFixed(3);
-      newChannel["Contact"] = this.props.config;
+      newChannel["Contact"] = this.props.config.callsign;
       newRows.push(newChannel);
     });
     return (
@@ -108,7 +103,6 @@ class Home extends Component {
         <Navbar />
         <Row className="row m-0">
           <Config
-            callsign={this.props.config}
             Option={selectedOption}
             value={selectedOption}
             radios={radios}
@@ -130,9 +124,8 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  const { callsign } = state.config;
-  return { config: callsign };
-};
+const mapStateToProps = state => ({
+  config: state.config
+});
 
 export default connect(mapStateToProps, { updateCallsign })(Home);

@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+
+import { connect } from "react-redux";
+import { updateCallsign } from "../../../actions/configActions";
+
 import TextInput from "./TextInput";
 import RadioInput from "./RadioInput";
 import SatSearch from "./SatSearch/SatSearch";
@@ -7,7 +11,12 @@ import Channels from "./Channels";
 import Power from "./Power";
 import Export from "./Export";
 
-export default class Config extends Component {
+class Config extends Component {
+  handleCallsignChange = e => {
+    const value = e.target.value;
+    this.props.updateCallsign(value);
+  };
+
   render() {
     return (
       <div
@@ -19,7 +28,7 @@ export default class Config extends Component {
           <TextInput
             name="callsign"
             label="Callsign"
-            handleChange={this.props.handleCallsignChange.bind(this)}
+            handleChange={this.handleCallsignChange}
           />
           <RadioInput
             options={this.props.radios}
@@ -51,3 +60,9 @@ export default class Config extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  config: state.config
+});
+
+export default connect(mapStateToProps, { updateCallsign })(Config);
