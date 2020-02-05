@@ -21,7 +21,6 @@ class Home extends Component {
     this.state = {
       selectedRadio: radios.find(radio => parseInt(radio.id) === 1),
       channel: { start: "", spread: "" },
-      callsign: "",
       satValue: "",
       sats: sats,
       satsFound: sats
@@ -103,7 +102,6 @@ class Home extends Component {
             sats={sats}
             satsFound={satsFound}
             satValue={satValue}
-            handleCallsignChange={this.handleCallsignChange}
             handleChannelChange={this.handleChannelChange}
             onOptionChange={this.handleRadioChange}
             handleSatClick={this.handleSatClick}

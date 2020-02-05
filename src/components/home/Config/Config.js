@@ -12,11 +12,6 @@ import PowerSelect from "./PowerSelect";
 import Export from "./Export";
 
 class Config extends Component {
-  handleCallsignChange = e => {
-    const value = e.target.value;
-    this.props.updateCallsign(value);
-  };
-
   render() {
     return (
       <div
@@ -28,7 +23,7 @@ class Config extends Component {
           <TextInput
             name="callsign"
             label="Callsign"
-            handleChange={this.handleCallsignChange}
+            handleChange={e => this.props.updateCallsign(e.target.value)}
           />
           <RadioSelect
             options={this.props.radios}
