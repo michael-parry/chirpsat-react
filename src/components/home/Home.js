@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-import { connect } from "react-redux";
-import { updateCallsign } from "../../actions/configActions";
-
 import Navbar from "../Navbar";
 import Table from "./table/Table";
 import Config from "./Config/Config";
@@ -15,7 +12,7 @@ import emptyChannel from "../../json/emptyChannel.json";
 import radios from "../../json/radios.json";
 import sats from "../../json/sats.json";
 
-class Home extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,23 +64,6 @@ class Home extends Component {
   render() {
     // state destructuring
     const { selectedRadio, channel, sats, satsFound, satValue } = this.state;
-
-    // generate table rows from state, pass to table as prop
-    const activeSatArray = this.state.sats
-      .filter(sat => sat.isActive === true)
-      .sort((a, b) => (a.nickname < b.nickname ? -1 : 1));
-    const newRows = [];
-    activeSatArray.forEach((sat, index) => {
-      let newChannel = { ...emptyChannel[0] };
-      newChannel["No."] = !this.state.channel.start
-        ? index + 1
-        : parseInt(this.state.channel.start) + index;
-      newChannel["Channel Name"] = sat.nickname;
-      newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
-      newChannel["Transmit Frequency"] = (sat.uplink * 1e-6).toFixed(3);
-      newChannel["Contact"] = this.props.config.callsign;
-      newRows.push(newChannel);
-    });
     return (
       <>
         <Navbar />
@@ -99,15 +79,9 @@ class Home extends Component {
             handleSatClick={this.handleSatClick}
             handleSatSearch={this.handleSatSearch}
           />
-          <Table columns={selectedRadio.channelDetails} bodyContent={newRows} />
+          <Table columns={selectedRadio.channelDetails} />
         </Row>
       </>
     );
   }
 }
-
-const mapStateToProps = state => ({
-  config: state.config
-});
-
-export default connect(mapStateToProps, { updateCallsign })(Home);

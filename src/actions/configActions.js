@@ -1,8 +1,8 @@
 import {
   UPDATE_CALLSIGN,
   UPDATE_RADIO,
-  ACTIVATE_CALLSIGN,
-  DEACTIVATE_CALLSIGN
+  ACTIVATE_SATELLITE,
+  DEACTIVATE_SATELLITE
 } from "./types";
 import radios from "../json/radios"; // replace with fetch from backend in updateRadio
 

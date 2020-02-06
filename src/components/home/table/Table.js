@@ -1,16 +1,37 @@
 import React, { Component } from "react";
-import Row from "./Row";
+
+import { connect } from "react-redux";
 
 import { uuid } from "uuidv4";
 
-export default class Table extends Component {
+import Row from "./Row";
+
+import emptyChannel from "../../../json/emptyChannel";
+import sats from "../../../json/sats.json"; // @TEMP dummy data, needs to be passed sats from redux as prop
+
+class Table extends Component {
   render() {
+    const activeSatArray = sats
+      .filter(sat => sat.isActive === true)
+      .sort((a, b) => (a.nickname < b.nickname ? -1 : 1));
+    const bodyContent = [];
+    activeSatArray.forEach((sat, index) => {
+      let newChannel = { ...emptyChannel[0] };
+      newChannel["No."] = !this.props.config.channel.start
+        ? index + 1
+        : parseInt(this.state.channel.start) + index;
+      newChannel["Channel Name"] = sat.nickname;
+      newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
+      newChannel["Transmit Frequency"] = (sat.uplink * 1e-6).toFixed(3);
+      newChannel["Contact"] = this.props.config.callsign;
+      bodyContent.push(newChannel);
+    });
     const tableRows = this.props.columns.map(column => (
       <th key={uuid()} className="text-nowrap" value={column.class}>
         {column.title}
       </th>
     ));
-    const bodyRows = this.props.bodyContent.map(contents => (
+    const bodyRows = bodyContent.map(contents => (
       <Row key={uuid()} rowContents={contents}></Row>
     ));
 
@@ -29,3 +50,8 @@ export default class Table extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  config: state.config
+});
+
+export default connect(mapStateToProps)(Table);

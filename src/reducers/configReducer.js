@@ -7,6 +7,7 @@ import {
 
 const initialState = {
   callsign: "",
+  channel: { start: "", spread: "" },
   radio: {},
   sats: [],
   sat: {}
