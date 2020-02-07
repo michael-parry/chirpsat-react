@@ -1,6 +1,8 @@
 import {
   UPDATE_CALLSIGN,
   UPDATE_RADIO,
+  UPDATE_CHANNEL_START,
+  UPDATE_CHANNEL_SPREAD,
   ACTIVATE_SATELLITE,
   DEACTIVATE_SATELLITE
 } from "./types";
@@ -20,4 +22,19 @@ export const updateRadio = value => dispatch => {
     type: UPDATE_RADIO,
     payload: radioPayload
   });
+};
+
+export const updateChannel = event => dispatch => {
+  if (event.target.id === "options-channel-start") {
+    dispatch({
+      type: UPDATE_CHANNEL_START,
+      payload: event.target.value
+    });
+  }
+  if (event.target.id === "options-channel-spread") {
+    dispatch({
+      type: UPDATE_CHANNEL_SPREAD,
+      payload: event.target.value
+    });
+  }
 };

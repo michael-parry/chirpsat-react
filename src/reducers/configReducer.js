@@ -1,6 +1,8 @@
 import {
   UPDATE_CALLSIGN,
   UPDATE_RADIO,
+  UPDATE_CHANNEL_START,
+  UPDATE_CHANNEL_SPREAD,
   ACTIVATE_SATELLITE,
   DEACTIVATE_SATELLITE
 } from "../actions/types";
@@ -19,6 +21,13 @@ export default function(state = initialState, action) {
       return { ...state, callsign: action.payload };
     case UPDATE_RADIO:
       return { ...state, radio: action.payload };
+    case UPDATE_CHANNEL_START:
+      return { ...state, channel: { ...state.channel, start: action.payload } };
+    case UPDATE_CHANNEL_SPREAD:
+      return {
+        ...state,
+        channel: { ...state.channel, spread: action.payload }
+      };
     default:
       return state;
   }

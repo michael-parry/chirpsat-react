@@ -19,7 +19,7 @@ class Table extends Component {
       let newChannel = { ...emptyChannel[0] };
       newChannel["No."] = !this.props.config.channel.start
         ? index + 1
-        : parseInt(this.state.channel.start) + index;
+        : parseInt(this.props.config.channel.start) + index;
       newChannel["Channel Name"] = sat.nickname;
       newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
       newChannel["Transmit Frequency"] = (sat.uplink * 1e-6).toFixed(3);

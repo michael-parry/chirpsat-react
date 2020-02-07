@@ -37,8 +37,8 @@ class Config extends Component {
           />
           <TextInput name="channel-contact" label="Contact" />
           <Channels
-            channel={this.props.channel}
-            handleChange={this.props.handleChannelChange.bind(this)}
+          // channel={this.props.channel}
+          // handleChange={this.props.handleChannelChange.bind(this)}
           />
           <PowerSelect powerList={this.props.selectedRadio.power} />
           <TextInput
