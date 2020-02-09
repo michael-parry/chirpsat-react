@@ -17,7 +17,7 @@ export const updateCallsign = value => dispatch => {
 
 export const updateRadio = value => dispatch => {
   const foundRadio = radios.find(radio => radio.id === parseInt(value));
-  const radioPayload = foundRadio ? foundRadio : radios[0];
+  const radioPayload = foundRadio ? foundRadio : {};
   dispatch({
     type: UPDATE_RADIO,
     payload: radioPayload

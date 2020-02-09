@@ -44,6 +44,7 @@ class Channels extends Component {
               className="form-control"
               id="options-channel-start"
               placeholder="start"
+              autoComplete="off"
               value={channel.start}
               onChange={this.handleChange}
             />
@@ -53,6 +54,7 @@ class Channels extends Component {
               className="form-control"
               id="options-channel-spread"
               placeholder="spread"
+              autoComplete="off"
               value={channel.spread}
               onChange={this.handleChange}
             ></input>

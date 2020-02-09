@@ -8,7 +8,6 @@ import Config from "./Config/Config";
 import Row from "react-bootstrap/Row";
 
 // json data
-import emptyChannel from "../../json/emptyChannel.json";
 import radios from "../../json/radios.json";
 import sats from "../../json/sats.json";
 
@@ -25,10 +24,6 @@ export default class Home extends Component {
   }
 
   // Select handling
-
-  setHeader = header => {
-    this.setState({ tableRow: header });
-  };
 
   handleChannelChange = e => {
     const newChannel = { ...this.state.channel, start: e.target.value };
@@ -54,7 +49,8 @@ export default class Home extends Component {
     satObject.isActive = !satObject.isActive;
     const newSatArray = [
       ...this.state.sats.filter(sat => sat.number !== parseInt(id)),
-      satObject
+      satObject,
+      {}
     ].sort((a, b) => (a.nickname > b.nickname ? 1 : -1));
     this.setState({
       sats: newSatArray
@@ -79,7 +75,7 @@ export default class Home extends Component {
             handleSatClick={this.handleSatClick}
             handleSatSearch={this.handleSatSearch}
           />
-          <Table columns={selectedRadio.channelDetails} />
+          <Table columns={selectedRadio.channelDetails} sats={sats} />
         </Row>
       </>
     );
