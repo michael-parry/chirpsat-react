@@ -23,7 +23,7 @@ class Table extends Component {
       newChannel["Channel Name"] = sat.nickname;
       newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
       newChannel["Transmit Frequency"] = (sat.uplink * 1e-6).toFixed(3);
-      newChannel["Contact"] = this.props.config.callsign;
+      newChannel["Radio ID"] = this.props.config.callsign;
       bodyContent.push(newChannel);
     });
 
@@ -34,7 +34,7 @@ class Table extends Component {
         </th>
       ))
     ) : (
-      <th class="text-nowrap" colSpan="50" style={{ height: "49px" }}></th>
+      <th className="text-nowrap" colSpan="50" style={{ height: "49px" }}></th>
     );
     let bodyRows = bodyContent.map(contents => (
       <Row key={uuid()} rowContents={contents}></Row>
@@ -55,11 +55,17 @@ class Table extends Component {
           <FontAwesomeIcon
             icon={faRocket}
             size="4x"
+            color="rgb(108, 117, 125)"
             className="d-block d-lg-none m-2"
           />
           <div className="d-inline-flex flex-column">
-            <h1 className="ml-2 display-4 text-muted">Get started!</h1>
-            <p className="lead text-muted">
+            <h1
+              className="ml-2 display-4 text-muted"
+              style={{ userSelect: "none" }}
+            >
+              Get started!
+            </h1>
+            <p className="lead text-muted" style={{ userSelect: "none" }}>
               You haven't selected a satellite yet, select one to create a
               channel.{" "}
             </p>
