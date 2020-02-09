@@ -28,19 +28,13 @@ class Config extends Component {
           <RadioSelect
             selectInfo={{ label: "Radio", inputName: "radioInput" }}
           />
-          <SatSearch
-            sats={this.props.sats}
-            satsFound={this.props.satsFound}
-            value={this.props.satValue}
-            handleSatClick={this.props.handleSatClick.bind(this)}
-            handleSatSearch={this.props.handleSatSearch.bind(this)}
-          />
+          <SatSearch />
           <TextInput name="channel-contact" label="Contact" />
           <Channels
           // channel={this.props.channel}
           // handleChange={this.props.handleChannelChange.bind(this)}
           />
-          <PowerSelect powerList={this.props.selectedRadio.power} />
+          <PowerSelect powerList={this.props.config.radio.power} />
           <TextInput
             name="channel-name"
             placeholder="AO-92"

@@ -3,15 +3,16 @@ import {
   UPDATE_RADIO,
   UPDATE_CHANNEL_START,
   UPDATE_CHANNEL_SPREAD,
-  ACTIVATE_SATELLITE,
-  DEACTIVATE_SATELLITE
+  UPDATE_SATELLITES
 } from "../actions/types";
+
+import sats from "../json/sats";
 
 const initialState = {
   callsign: "",
   channel: { start: "", spread: "" },
   radio: {},
-  sats: [],
+  sats: sats,
   sat: {}
 };
 
@@ -27,6 +28,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         channel: { ...state.channel, spread: action.payload }
+      };
+    case UPDATE_SATELLITES:
+      return {
+        ...state,
+        sats: action.payload
       };
     default:
       return state;

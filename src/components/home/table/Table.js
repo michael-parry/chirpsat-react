@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import { uuid } from "uuidv4";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,7 +13,7 @@ import sats from "../../../json/sats.json"; // @TEMP dummy data, needs to be pas
 
 class Table extends Component {
   render() {
-    const activeSatArray = this.props.sats
+    const activeSatArray = this.props.config.sats
       .filter(sat => sat.isActive === true)
       .sort((a, b) => (a.nickname < b.nickname ? -1 : 1));
     const bodyContent = [];

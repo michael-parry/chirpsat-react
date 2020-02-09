@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 const uuidv4 = require("uuid/v4");
 
-export default class PowerSelect extends Component {
+class PowerSelect extends Component {
   render() {
-    const optionsList = this.props.powerList.map(power => (
-      <option key={uuidv4()} value={power}>
-        {power}
-      </option>
-    ));
+    const optionsList =
+      this.props.power &&
+      this.props.power.map(power => (
+        <option key={uuidv4()} value={power}>
+          {power}
+        </option>
+      ));
     return (
       <div className="form-group">
         <label>Power</label>
@@ -29,3 +31,7 @@ export default class PowerSelect extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  power: state.config.radio.power
+});
+export default connect(mapStateToProps)(PowerSelect);

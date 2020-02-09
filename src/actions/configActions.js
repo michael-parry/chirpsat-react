@@ -3,8 +3,7 @@ import {
   UPDATE_RADIO,
   UPDATE_CHANNEL_START,
   UPDATE_CHANNEL_SPREAD,
-  ACTIVATE_SATELLITE,
-  DEACTIVATE_SATELLITE
+  UPDATE_SATELLITES
 } from "./types";
 import radios from "../json/radios"; // replace with fetch from backend in updateRadio
 
@@ -37,4 +36,11 @@ export const updateChannel = event => dispatch => {
       payload: event.target.value
     });
   }
+};
+
+export const updateSatellites = value => dispatch => {
+  dispatch({
+    type: UPDATE_SATELLITES,
+    payload: value
+  });
 };
