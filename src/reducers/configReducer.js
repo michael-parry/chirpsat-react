@@ -1,19 +1,22 @@
 import {
   UPDATE_CALLSIGN,
   UPDATE_RADIO,
+  UPDATE_SATELLITES,
+  UPDATE_CONTACT,
   UPDATE_CHANNEL_START,
   UPDATE_CHANNEL_SPREAD,
-  UPDATE_SATELLITES
+  UPDATE_POWER
 } from "../actions/types";
 
 import sats from "../json/sats";
 
 const initialState = {
   callsign: "",
-  channel: { start: "", spread: "" },
   radio: {},
   sats: sats,
-  sat: {}
+  contact: "Satellites",
+  channel: { start: "", spread: "" },
+  power: "Choose.."
 };
 
 export default function(state = initialState, action) {
@@ -21,7 +24,14 @@ export default function(state = initialState, action) {
     case UPDATE_CALLSIGN:
       return { ...state, callsign: action.payload };
     case UPDATE_RADIO:
-      return { ...state, radio: action.payload };
+      return { ...state, radio: action.payload, power: initialState.power };
+    case UPDATE_SATELLITES:
+      return {
+        ...state,
+        sats: action.payload
+      };
+    case UPDATE_CONTACT:
+      return { ...state, contact: action.payload };
     case UPDATE_CHANNEL_START:
       return { ...state, channel: { ...state.channel, start: action.payload } };
     case UPDATE_CHANNEL_SPREAD:
@@ -29,10 +39,11 @@ export default function(state = initialState, action) {
         ...state,
         channel: { ...state.channel, spread: action.payload }
       };
-    case UPDATE_SATELLITES:
+
+    case UPDATE_POWER:
       return {
         ...state,
-        sats: action.payload
+        power: action.payload
       };
     default:
       return state;

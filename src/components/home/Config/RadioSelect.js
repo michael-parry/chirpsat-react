@@ -34,6 +34,7 @@ class RadioSelect extends Component {
           value={this.state.value}
           name={this.props.selectInfo.inputName}
           onChange={this.handleChange}
+          required
         >
           <option value="0">Choose..</option>
           {optionsList}

@@ -1,13 +1,17 @@
 import {
   UPDATE_CALLSIGN,
   UPDATE_RADIO,
+  UPDATE_SATELLITES,
+  UPDATE_CONTACT,
   UPDATE_CHANNEL_START,
   UPDATE_CHANNEL_SPREAD,
-  UPDATE_SATELLITES
+  UPDATE_POWER
 } from "./types";
 import radios from "../json/radios"; // replace with fetch from backend in updateRadio
 
 export const updateCallsign = value => dispatch => {
+  console.log(value);
+
   dispatch({
     type: UPDATE_CALLSIGN,
     payload: value
@@ -23,6 +27,19 @@ export const updateRadio = value => dispatch => {
   });
 };
 
+export const updateSatellites = value => dispatch => {
+  dispatch({
+    type: UPDATE_SATELLITES,
+    payload: value
+  });
+};
+
+export const updateContact = value => dispatch => {
+  dispatch({
+    type: UPDATE_CONTACT,
+    payload: value
+  });
+};
 export const updateChannel = event => dispatch => {
   if (event.target.id === "options-channel-start") {
     dispatch({
@@ -38,9 +55,10 @@ export const updateChannel = event => dispatch => {
   }
 };
 
-export const updateSatellites = value => dispatch => {
+export const updatePower = event => dispatch => {
+  console.log(event.target.value);
   dispatch({
-    type: UPDATE_SATELLITES,
-    payload: value
+    type: UPDATE_POWER,
+    payload: event.target.value
   });
 };

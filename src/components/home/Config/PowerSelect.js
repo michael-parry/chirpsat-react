@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { updatePower } from "../../../actions/configActions";
 const uuidv4 = require("uuid/v4");
 
 class PowerSelect extends Component {
   render() {
     const optionsList =
-      this.props.power &&
-      this.props.power.map(power => (
+      this.props.config.radio.power &&
+      this.props.config.radio.power.map(power => (
         <option key={uuidv4()} value={power}>
           {power}
         </option>
@@ -19,8 +20,10 @@ class PowerSelect extends Component {
             name="power-select"
             id="power-select"
             className="form-control"
+            value={this.props.config.power}
+            onChange={this.props.updatePower}
           >
-            <option>Choose..</option>
+            <option value="Choose..">Choose..</option>
             {optionsList}
           </select>
           <div className="input-group-append">
@@ -32,6 +35,6 @@ class PowerSelect extends Component {
   }
 }
 const mapStateToProps = state => ({
-  power: state.config.radio.power
+  config: state.config
 });
-export default connect(mapStateToProps)(PowerSelect);
+export default connect(mapStateToProps, { updatePower })(PowerSelect);

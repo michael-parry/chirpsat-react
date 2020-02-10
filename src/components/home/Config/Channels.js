@@ -25,7 +25,9 @@ const body = (
 
 class Channels extends Component {
   handleChange = e => {
-    if (e.target.value === "" || Number(e.target.value)) {
+    var re = /^[1-9]\d*$/;
+    console.log(typeof e.target.value);
+    if (e.target.value === "" || re.exec(e.target.value)) {
       this.props.updateChannel(e);
     }
   };

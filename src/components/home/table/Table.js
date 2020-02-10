@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
 import { uuid } from "uuidv4";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,15 +8,16 @@ import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import Row from "./Row";
 
 import emptyChannel from "../../../json/emptyChannel";
-import sats from "../../../json/sats.json"; // @TEMP dummy data, needs to be passed sats from redux as prop
 
 class Table extends Component {
   render() {
     const activeSatArray = this.props.config.sats
       .filter(sat => sat.isActive === true)
       .sort((a, b) => (a.nickname < b.nickname ? -1 : 1));
-    const bodyContent = [];
-    activeSatArray.forEach((sat, index) => {
+    const bodyContent = activeSatArray.map((sat, index) => {
+      for (var i in parseInt(this.props.config.channel.spread)) {
+        console.log(i);
+      }
       let newChannel = { ...emptyChannel[0] };
       newChannel["No."] = !this.props.config.channel.start
         ? index + 1
@@ -25,8 +25,11 @@ class Table extends Component {
       newChannel["Channel Name"] = sat.nickname;
       newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
       newChannel["Transmit Frequency"] = (sat.uplink * 1e-6).toFixed(3);
+      newChannel["Transmit Power"] = this.props.config.power;
+      newChannel["CTCSS/DCS Encode"] = sat.tone.toFixed(1);
+      newChannel["Contact"] = this.props.config.contact;
       newChannel["Radio ID"] = this.props.config.callsign;
-      bodyContent.push(newChannel);
+      return newChannel;
     });
 
     const tableRows = this.props.config.radio.channelDetails ? (
