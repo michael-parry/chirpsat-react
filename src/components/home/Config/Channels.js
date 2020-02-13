@@ -24,9 +24,14 @@ const body = (
 );
 
 class Channels extends Component {
-  handleChange = e => {
-    var re = /^[1-9]\d*$/;
-    console.log(typeof e.target.value);
+  handleStartChange = e => {
+    let re = /^[1-9]\d*$/;
+    if (e.target.value === "" || re.exec(e.target.value)) {
+      this.props.updateChannel(e);
+    }
+  };
+  handleSpreadChange = e => {
+    let re = /^[1-9]\d*$/;
     if (e.target.value === "" || re.exec(e.target.value)) {
       this.props.updateChannel(e);
     }
@@ -48,7 +53,7 @@ class Channels extends Component {
               placeholder="start"
               autoComplete="off"
               value={channel.start}
-              onChange={this.handleChange}
+              onChange={this.handleStartChange}
             />
 
             <input
@@ -58,7 +63,7 @@ class Channels extends Component {
               placeholder="spread"
               autoComplete="off"
               value={channel.spread}
-              onChange={this.handleChange}
+              onChange={this.handleSpreadChange}
             ></input>
           </div>
         </div>

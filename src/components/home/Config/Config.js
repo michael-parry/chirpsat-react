@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { updateCallsign, updateContact } from "../../../actions/configActions"; // redux acion
 
 import TextInput from "./TextInput";
+import CallsignInput from "./CallsignInput";
 import RadioSelect from "./RadioSelect";
 import SatSearch from "./SatSearch/SatSearch";
 import Channels from "./Channels";
@@ -29,13 +30,8 @@ class Config extends Component {
         className="col col-12 col-sm-5 col-lg-2  p-0"
         id="config-container"
       >
-        <form className="container mt-2 d-flex flex-column">
-          <TextInput
-            name="callsign"
-            label="Callsign"
-            value={this.props.config.callsign}
-            handleChange={e => this.props.updateCallsign(e.target.value)}
-          />
+        <form className="container mt-2 d-flex flex-column" id="form-container">
+          <CallsignInput />
           <RadioSelect
             selectInfo={{ label: "Radio", inputName: "radioInput" }}
           />
@@ -48,11 +44,6 @@ class Config extends Component {
           />
           <Channels />
           <PowerSelect powerList={this.props.config.radio.power} />
-          <TextInput
-            name="channel-name"
-            placeholder="AO-92"
-            label="Channel name"
-          />
         </form>
         <Export />
       </div>
