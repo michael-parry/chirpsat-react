@@ -35,9 +35,13 @@ export const updateSatellites = value => dispatch => {
 };
 
 export const updateContact = value => dispatch => {
+  let newContact = "Satellites";
+  if (value !== "") {
+    newContact = value;
+  }
   dispatch({
     type: UPDATE_CONTACT,
-    payload: value
+    payload: newContact
   });
 };
 export const updateChannel = event => dispatch => {
