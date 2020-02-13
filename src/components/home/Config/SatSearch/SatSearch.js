@@ -1,21 +1,59 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { updateSatellites } from "../../../../actions/configActions";
+
+import { uuid } from "uuidv4";
+
 import SatItem from "./SatItem";
 import SatItemActive from "./SatItemActive";
 
-const uuidv4 = require("uuid/v4");
+import sats from "../../../../json/sats.json";
 
-export default class SatSearch extends Component {
+class SatSearch extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: "",
+      sats: sats,
+      satsFound: sats
+    };
+  }
+  handleSatSearch = e => {
+    this.setState({ value: e.target.value });
+    const query = e.target.value.toUpperCase();
+    let searchList = this.state.sats.filter(sat =>
+      sat.nickname.toUpperCase().includes(query)
+    );
+    this.setState({
+      satsFound: searchList
+    });
+  };
+
+  handleSatClick = (id, e) => {
+    e.preventDefault();
+    let satObject = this.props.config.sats.find(
+      sat => sat.number === parseInt(id)
+    );
+    satObject.isActive = !satObject.isActive;
+    const newSatArray = [
+      ...sats.filter(sat => sat.number !== parseInt(id)),
+      satObject,
+      {}
+    ].sort((a, b) => (a.nickname > b.nickname ? 1 : -1));
+    this.props.updateSatellites(newSatArray);
+  };
+
   render() {
-    const InactiveSats = this.props.satsFound
+    const InactiveSats = this.state.satsFound
       .filter(sat => sat.isActive === false)
       .sort((a, b) => (a.nickname > b.nickname ? 1 : -1));
     let foundSatArray = InactiveSats.map(sat => (
       <SatItem
-        key={uuidv4()}
+        key={uuid()}
         number={sat.number}
         nickname={sat.nickname}
         isDisabled={sat.disabled}
-        handleSatClick={this.props.handleSatClick}
+        handleSatClick={this.handleSatClick}
       ></SatItem>
     ));
     if (foundSatArray.filter(sat => !sat.isActive).length === 0) {
@@ -25,15 +63,15 @@ export default class SatSearch extends Component {
         </div>
       );
     }
-    const activeSatArray = this.props.sats
+    const activeSatArray = this.state.sats
       .filter(sat => sat.isActive === true)
       .map(sat => (
         <SatItemActive
-          key={uuidv4()}
+          key={uuid()}
           number={sat.number}
           nickname={sat.nickname}
           isDisabled={sat.disabled}
-          handleSatClick={this.props.handleSatClick.bind(this)}
+          handleSatClick={this.handleSatClick.bind(this)}
         ></SatItemActive>
       ));
     return (
@@ -45,8 +83,8 @@ export default class SatSearch extends Component {
             name="sat-search"
             className="list-group-item"
             placeholder="Search.."
-            value={this.props.value}
-            onChange={this.props.handleSatSearch.bind(this)}
+            value={this.state.value}
+            onChange={this.handleSatSearch.bind(this)}
           />
           {foundSatArray}
           {activeSatArray}
@@ -55,3 +93,9 @@ export default class SatSearch extends Component {
     );
   }
 }
+
+const MapStateToProps = state => ({
+  config: state.config
+});
+
+export default connect(MapStateToProps, { updateSatellites })(SatSearch);

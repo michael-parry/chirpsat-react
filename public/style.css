@@ -1,7 +1,3 @@
-#config-container {
-  border: 10px, gray;
-}
-
 /* Breakpoint table styling */
 @media (min-width: 576px) {
   #config-container {
@@ -10,6 +6,8 @@
     left: 0;
     bottom: 38px;
     overflow-y: auto;
+
+    border-right: 1px solid lightgray;
   }
   #sheet-update-form {
     position: fixed;

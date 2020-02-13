@@ -1,7 +1,7 @@
 [
   {
-    "radio": "anytone878",
-    "radioName": "AnyTone 878",
+    "name": "AnyTone 878",
+    "name_concat": "anytone878",
     "id": 1,
     "channelDetails": [
       {
@@ -229,11 +229,11 @@
     "bandwidth": [12.5, 25]
   },
   {
-    "radio": "rt82",
+    "name": "Retevis RT82",
+    "name_concat": "rt82",
+    "id": 2,
     "brand": "retevis",
     "model": "rt82",
-    "radioName": "Retevis RT82",
-    "id": 2,
     "channelDetails": [
       { "title": "No.", "class": "cellNum" },
       { "title": "Name", "class": "cellChannelName" },

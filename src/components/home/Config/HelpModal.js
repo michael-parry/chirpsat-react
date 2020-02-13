@@ -7,20 +7,17 @@ import { faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
 export default class HelpModal extends Component {
   constructor(props) {
     super(props);
-    this.handleClose = this.handleClose.bind(this);
-    this.handleShow = this.handleShow.bind(this);
     this.state = {
       show: false
     };
   }
-
-  handleClose() {
+  handleClose = e => {
     this.setState({ show: false });
-  }
-  handleShow(e) {
+  };
+  handleShow = e => {
     e.preventDefault();
     this.setState({ show: true });
-  }
+  };
   render() {
     const { body, title } = this.props;
     return (
