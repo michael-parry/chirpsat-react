@@ -28,7 +28,12 @@ class Table extends Component {
         newChannel["No."] = !start
           ? totalCount + 1
           : parseInt(start) + totalCount;
-        newChannel["Channel Name"] = sat.nickname;
+        newChannel["Channel Name"] =
+          isSpread === 1
+            ? sat.nickname
+            : `${sat.nickname} (${spreadShift <= 0 ? "" : "+"}${i -
+                isSpread / 2 +
+                (isSpread % 2) / 2})`;
         if (isSpread === 1) {
           newChannel["Receive Frequency"] = (sat.downlink * 1e-6).toFixed(3);
           newChannel["Transmit Frequency"] = (sat.uplink * 1e-6).toFixed(3);
