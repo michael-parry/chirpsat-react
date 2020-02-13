@@ -23,7 +23,7 @@ class Table extends Component {
     let totalCount = 0;
     activeSatArray.forEach(sat => {
       for (let i = 0; i < isSpread; i++) {
-        const spreadShift = (i - isSpread / 2 + (isSpread % 2) / 2) * 5e4;
+        const spreadShift = (i - isSpread / 2 + (isSpread % 2) / 2) * 5e3;
         let newChannel = { ...emptyChannel[0] };
         newChannel["No."] = !start
           ? totalCount + 1
@@ -40,6 +40,7 @@ class Table extends Component {
           newChannel["Transmit Frequency"] = (
             parseInt(sat.uplink) * 1e-6
           ).toFixed(3);
+        } else if (sat.downlink < sat.uplink) {
           newChannel["Receive Frequency"] = (
             parseInt(sat.downlink) * 1e-6
           ).toFixed(3);

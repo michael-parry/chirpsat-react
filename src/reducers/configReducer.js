@@ -14,7 +14,7 @@ const initialState = {
   callsign: "",
   radio: {},
   sats: sats,
-  contact: "Satellites",
+  contact: "Satellites", // also set in ConfigActions.js
   channel: { start: "", spread: "" },
   power: "Choose.."
 };
