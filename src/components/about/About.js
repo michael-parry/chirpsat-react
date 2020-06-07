@@ -293,7 +293,7 @@ export default class home extends Component {
               </p>
             </Container>
           </article>
-          <div class="col-2 d-none d-lg-block"></div>
+          <div className="col-2 d-none d-lg-block"></div>
         </div>
       </>
     );
