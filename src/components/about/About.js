@@ -263,7 +263,7 @@ export default class home extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Github
+                  GitHub
                 </a>
                 .
               </p>
